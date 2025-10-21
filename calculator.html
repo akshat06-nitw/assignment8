@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Calculator</title>
+<style>
+  
+  :root {
+    --primary-color: #4a90e2;
+    --background: #000000;
+    --button-bg: white;
+    --button-hover: #e1eaff;
+    --button-active: #a3c0f9;
+    --button-focus: #003d99;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    background: var(--background);
+    font-family: var(--font-family);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 1rem;
+  }
+
+  
+  .calculator {
+  background: rgba(110, 110, 110, 0.664);
+  border-radius: 15px;
+  width: 320px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  margin: 0 auto; 
+}
+
+
+@media (max-width: 400px) {
+  .calculator {
+    width: 90vw; 
+    padding: 0.5rem;
+  }
+}
+
+
+.calculator__keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+
+
+@media (max-width: 400px) {
+  button {
+    padding: 0.7rem 0;
+    font-size: 1rem;
+  }
+}
+
+
+.calculator__screen {
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  height: 3.5rem;
+  border-style: solid;
+  border-color: #4a90e2;
+  background: #fff;
+  color: rgba(65, 65, 65, 0.8);
+  text-align: right;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  min-height: 3.5rem;
+}
+
+@media (max-width: 400px) {
+  .calculator__screen {
+    font-size: 1.5rem;
+    height: auto;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+
+ 
+  button {
+    background: var(--button-bg);
+    border: 2px solid transparent;
+    border-radius: 50%;
+    padding: 1rem 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #222;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+
+  button:hover,
+  button:focus-visible {
+    background-color: var(--button-hover);
+    outline: none;
+    border-color: var(--primary-color);
+  }
+
+  button:active {
+    background-color: var(--button-active);
+  }
+
+ 
+  .operator {
+    background-color: var(--primary-color);
+    color: white;
+  }
+
+  .operator:hover,
+  .operator:focus-visible {
+    background-color: #2d6cdf;
+    border-color: #1a44a0;
+  }
+
+  
+  .span-two {
+    grid-column: span 2;
+  }
+
+ 
+  .calculator__screen[aria-live] {
+    min-height: 3.5rem;
+  }
+</style>
+</head>
+<body>
+
+<main>
+  <section class="calculator" role="application" aria-label="Calculator">
+   
+    <div class="calculator__screen" role="textbox" aria-live="polite" aria-atomic="true" tabindex="0" aria-label="Calculator display">
+      Enter Input
+    </div>
+
+    
+    <div class="calculator__keys">
+      <button type="button" aria-label="Clear" class="operator" id="clear">C</button>
+      <button type="button" aria-label="Backspace" class="operator" id="backspace">⌫</button>
+      <button type="button" aria-label="Percent" class="operator" id="percent">%</button>
+      <button type="button" aria-label="Divide" class="operator" data-action="divide">÷</button>
+
+      <button type="button" aria-label="Seven" data-number="7">7</button>
+      <button type="button" aria-label="Eight" data-number="8">8</button>
+      <button type="button" aria-label="Nine" data-number="9">9</button>
+      <button type="button" aria-label="Multiply" class="operator" data-action="multiply">×</button>
+
+      <button type="button" aria-label="Four" data-number="4">4</button>
+      <button type="button" aria-label="Five" data-number="5">5</button>
+      <button type="button" aria-label="Six" data-number="6">6</button>
+      <button type="button" aria-label="Subtract" class="operator" data-action="subtract">−</button>
+
+      <button type="button" aria-label="One" data-number="1">1</button>
+      <button type="button" aria-label="Two" data-number="2">2</button>
+      <button type="button" aria-label="Three" data-number="3">3</button>
+      <button type="button" aria-label="Add" class="operator" data-action="add">+</button>
+
+      <button type="button" aria-label="Zero" data-number="0" class="span-two">0</button>
+      <button type="button" aria-label="Decimal point" data-number=".">.</button>
+      <button type="button" aria-label="Equals" class="operator" id="equals">=</button>
+    </div>
+  </section>
+</main>
+
+</body>
+</html>
